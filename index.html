@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Islahh!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #ff9fdd;
+      color: white;
+      text-align: center;
+    }
+
+    /* --- ENVELOPE SCREEN --- */
+    .envelope-screen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      background: #ff9fdd;
+    }
+
+    .envelope-screen img {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .envelope-screen img:hover {
+      transform: scale(1.1);
+    }
+
+    .loading {
+      display: none;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    /* --- CARD --- */
+    .card {
+      display: none;
+      background: #ff6fbc;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 25px;
+      max-width: 700px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 2.2em;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .icons img {
+      width: 100px;
+      height: 100px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .btn {
+      background: white;
+      color: #ff3e9e;
+      font-weight: bold;
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ffd6ef;
+    }
+
+    .whatsapp {
+      text-decoration: none;
+      background: #25d366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    audio {
+      margin-top: 20px;
+    }
+
+    /* --- MULTI PAGE --- */
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .nav-buttons {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Envelope screen -->
+  <div class="envelope-screen" id="envelopeScreen">
+    <img src="assets/images/envelope.png" alt="Envelope" id="envelope">
+    <div class="loading" id="loading">📨 Membuka surat... tunggu 3 saat ❤️</div>
+  </div>
+
+  <!-- Birthday card -->
+  <div class="card" id="card">
+
+    <!-- Page 1 -->
+    <div class="page active">
+      <h1>💜 HAPPY BIRTHDAY 💜</h1>
+</p>
+      <div class="icons">
+        <img src="assets/images/cake.gif" alt="Cake">
+      </div>
+      <p>Assalamualaikum n hye baby sayangg ! First of all happy birthday to you sayang ! dah bertambah satu tahun usia kamuu babyy hehe. Harini adalah hari yang special buat kamu🎉 Semoga kamu panjang umur dan dimurahkan segala rezeki</p>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page">
+      <h3>  NUR ISLAHHIYAH MUNIRAH </h3>
+      </p>
+</p>
+      <p>Dah besar-besar ni hadiah tak ada ye sorryy sebab dah kekurangan duit tapi nanti kita pergi makan-makan okey sayang ! Thank you sebab dah jadi manusia dan orang yang berguna untuk ipann, ipann apreciate segala apa yg kamu telah bagi dekat ipann</p>
+
+      <img src="assets/images/gift2.jpg" width="150" alt="Gift">
+      <p>Hari ini, Ipann nak kamu tahu betapa besar cinta ipann untuk kamu. Bukan sekadar hari ni, bukan sekadar waktu kita bersama, tapi sampai bila-bila.</p>
+
+
+    </div>
+
+    <!-- Page 3 -->
+    <div class="page">
+      <h3>🎁 MY COMELL —</h3>
+      <img src="assets/images/gift.jpg" width="150" alt="Gift">
+      <p>Terimalah hadiah yang sederhana dari ipann hihihi... satu ja nak cakap, kamu bukan saja hadir dalam hidup Ipann, tapi juga melengkapkan segalanya. Kamu bukan sekadar pasangan, Kamu adalah sahabat, pendengar setia, penyokong kuat, dan hadiah paling berharga buat diri ipann. HAPPY BIRTHDAY ISLAH ! HAPPY TURN 19</p>
+      <p>💜 LOVE YOU SAYANG 💜</p>
+
+      <!-- WhatsApp link (pindah ke last page) -->
+      <a href="https://wa.link/i89ndv" target="_blank" class="whatsapp">💬 Dah ka? are you ready to go next?</a>
+    </div>
+
+    <!-- Navigation buttons -->
+    <div class="nav-buttons">
+      <button class="btn" onclick="prevPage()">⬅ Prev</button>
+      <button class="btn" onclick="nextPage()">Next ➡</button>
+    </div>
+
+    <!-- Music buttons -->
+    <div class="buttons">
+      <button class="btn" onclick="toggleMusic()">Main / Pause Lagu</button>
+      <button class="btn" onclick="unmute()">Unmute (bunyi)</button>
+    </div>
+
+    <audio id="bg-music" loop>
+      <source src="assets/music/Tahta_Hatiku.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    const envelope = document.getElementById("envelope");
+    const envelopeScreen = document.getElementById("envelopeScreen");
+    const loading = document.getElementById("loading");
+    const card = document.getElementById("card");
+    const music = document.getElementById("bg-music");
+
+    // Pages
+    const pages = document.querySelectorAll(".page");
+    let currentPage = 0;
+
+    envelope.addEventListener("click", () => {
+      loading.style.display = "block";
+      setTimeout(() => {
+        envelopeScreen.style.display = "none";
+        card.style.display = "block";
+        music.play();
+      }, 3000); // 3 saat
+    });
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    function unmute() {
+      music.muted = false;
+      music.play();
+    }
+
+    function showPage(index) {
+      pages.forEach((page, i) => {
+        page.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextPage() {
+      currentPage = (currentPage + 1) % pages.length;
+      showPage(currentPage);
+    }
+
+    function prevPage() {
+      currentPage = (currentPage - 1 + pages.length) % pages.length;
+      showPage(currentPage);
+    }
+  </script>
+
+</body>
+</html>
